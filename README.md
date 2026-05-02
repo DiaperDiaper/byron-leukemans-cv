@@ -18,4 +18,4 @@ Planned GitHub Pages URL:
 
 ## Publishing
 
-The site is static. GitHub Pages can serve it directly from the repository root on the `main` branch.
+The site is static. This repository includes `.github/workflows/pages.yml` so GitHub Actions can deploy the root folder to GitHub Pages when changes are pushed to `main`.
