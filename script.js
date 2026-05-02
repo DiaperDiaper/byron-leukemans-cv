@@ -4,7 +4,10 @@ const counters = document.querySelectorAll("[data-count]");
 const typedLabels = document.querySelectorAll(".section-label");
 const navLinks = document.querySelectorAll(".nav-links a");
 const navSections = [...navLinks]
-  .map((link) => document.querySelector(link.getAttribute("href")))
+  .map((link) => {
+    const href = link.getAttribute("href") || "";
+    return href.startsWith("#") ? document.querySelector(href) : null;
+  })
   .filter(Boolean);
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -108,6 +111,7 @@ function typeSectionLabel(label) {
 }
 
 function updateProgress() {
+  if (!progress) return;
   const max = document.documentElement.scrollHeight - window.innerHeight;
   const amount = max > 0 ? window.scrollY / max : 0;
   progress.style.width = `${amount * 100}%`;
@@ -184,5 +188,25 @@ document.querySelectorAll(".btn, .writing-card, .contact-card, .nav-cv").forEach
     item.appendChild(ripple);
 
     window.setTimeout(() => ripple.remove(), 540);
+  });
+});
+
+document.querySelectorAll("[data-copy-target]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    const target = document.getElementById(button.dataset.copyTarget);
+    const text = target?.innerText?.trim();
+
+    if (!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      const original = button.textContent;
+      button.textContent = "Copied";
+      window.setTimeout(() => {
+        button.textContent = original;
+      }, 1400);
+    } catch {
+      button.textContent = "Select citation";
+    }
   });
 });

@@ -1021,6 +1021,80 @@ section:last-of-type {
   font-size: 0.75rem;
 }
 
+.article-page {
+  padding-top: 72px;
+}
+
+.article-hero {
+  padding: 42px 0 60px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.article-hero h1 {
+  max-width: 760px;
+  margin-bottom: 24px;
+  color: var(--dark-gray);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.35rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.article-body {
+  max-width: 720px;
+  padding: 64px 0 36px;
+}
+
+.article-body p {
+  color: #3f4248;
+  font-size: 1.08rem;
+  font-weight: 300;
+  line-height: 1.78;
+}
+
+.citation-panel,
+.comments-panel {
+  padding: 56px 0;
+}
+
+.citation-card {
+  margin-bottom: 14px;
+  padding: 22px;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--radius);
+  background: var(--near-white);
+}
+
+.citation-label {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.citation-text {
+  margin-bottom: 16px;
+  color: var(--dark-gray);
+  font-size: 0.94rem;
+  line-height: 1.62;
+}
+
+.comment-note {
+  max-width: 700px;
+  margin-bottom: 24px;
+  color: var(--mid-gray);
+  font-size: 0.96rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.giscus,
+.giscus-frame {
+  width: 100%;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -1233,6 +1307,10 @@ section:last-of-type {
 
   .hero h1 {
     font-size: 2.74rem;
+  }
+
+  .article-hero h1 {
+    font-size: 2.28rem;
   }
 
   .hero-bio {
